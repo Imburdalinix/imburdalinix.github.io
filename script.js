@@ -12,5 +12,5 @@ function updateTime() {
     document.getElementById('clock-southington').textContent = new Intl.DateTimeFormat('en-GB', options).format(new Date());
 }
 
-setInterval(updateTime, 1000);
+setInterval(updateTime, 500);
 updateTime(); // Initial call to set the time immediately
