@@ -1,11 +1,19 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+
+
 body { 
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'San Francisco', sans-serif;
     background-color: #181818;
+    position: relative;
 }
 
 .clock-container {
@@ -16,13 +24,54 @@ body {
 }
 
 .clock {
-    padding: 10px; 
-    color: rgb(255, 255, 255);
-    font-size: 5em; 
+    padding: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: white;
+    font-size: 5em;
 }
 
 .font {
-    font-size: 4em;
+    font-size: 3em;
     color: rgb(185, 185, 185);
-    margin-bottom: 10px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.seconds-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 100px;
+}
+
+.seconds {
+    position: absolute;
+    color: white;
+    font-size: 5em;
+}
+
+.circle-chart {
+    width: 150%;
+    height: 150%;
+    position: absolute;
+}
+
+.tick {
+    stroke: #eee;
+    stroke-width: 2;
+}
+
+.sub-title {
+    color: rgb(122, 122, 122);
+    font-size: 2em;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
