@@ -3,29 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Uhrzeiten</title>
+    <title>Live Clocks</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
     <div class="clock-container" id="bottom-left">
-        <h2 class="font">Frauenfeld</h2>
         <div class="clock" id="clock-frauenfeld"></div>
+        <h2 class="font">Frauenfeld</h2>
+        <p class="sub-title">Switzerland</p>
+    </div>
+    
+    <div class="clock-container" id="bottom-right">
+        <div class="clock" id="clock-bristol"></div>
+        <h2 class="font">Bristol</h2>
+        <p class="sub-title">United Kingdom</p>
     </div>
 
     <div class="clock-container" id="top-left">
-        <h2 class="font">Mumbai</h2>
         <div class="clock" id="clock-mumbai"></div>
+        <h2 class="font">Mumbai</h2>
+        <p class="sub-title">India</p>
     </div>
 
     <div class="clock-container" id="top-right">
-        <h2 class="font">Shanghai</h2>
         <div class="clock" id="clock-shanghai"></div>
+        <h2 class="font">Shanghai</h2>
+        <p class="sub-title">China</p>
     </div>
 
-    <div class="clock-container" id="bottom-right">
-        <h2 class="font">Bristol</h2>
-        <div class="clock" id="clock-southington"></div>
+    <div class="seconds-container">
+        <svg class="circle-chart" viewBox="0 0 100 100">
+            <g id="ticks"></g>
+        </svg>
+        <div class="seconds" id="seconds"></div>
     </div>
 
     <script src="script.js"></script>
