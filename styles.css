@@ -4,15 +4,19 @@
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
 }
 
+body {
+    margin: 0;
+    font-family: 'San Francisco', sans-serif;
+    background-color: #181818;
+    overflow: hidden;
+}
 
-body { 
+.container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     height: 100vh;
-    margin: 0;
-    font-family: 'San Francisco', sans-serif;
-    background-color: #181818;
+    width: 100vw;
     position: relative;
 }
 
@@ -24,18 +28,14 @@ body {
 }
 
 .clock {
-    padding: 10px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
     color: white;
-    font-size: 5em;
+    font-size: 6vw; /* Adjusted font size */
 }
 
 .font {
-    font-size: 3em;
+    font-size: 3.5vw; /* Adjusted font size */
     color: rgb(185, 185, 185);
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin: 0;
 }
 
 .seconds-container {
@@ -45,22 +45,21 @@ body {
     justify-content: center;
     top: 50%;
     left: 50%;
-    width: 100px;
-    height: 100px;
+    width: 15vw; /* Adjusted width */
+    height: 15vw; /* Adjusted height */
     transform: translate(-50%, -50%);
-    padding: 20px;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
 .seconds {
     position: absolute;
     color: white;
-    font-size: 5em;
+    font-size: 6vw; /* Adjusted font size */
 }
 
 .circle-chart {
-    width: 150%;
-    height: 150%;
+    width: 100%;
+    height: 100%;
     position: absolute;
 }
 
@@ -71,7 +70,27 @@ body {
 
 .sub-title {
     color: rgb(122, 122, 122);
-    font-size: 2em;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    font-size: 2.5vw; /* Slightly increased font size */
+    margin: 0;
+}
+
+.mobile-message {
+    display: none;
+    color: white;
+    font-size: 5vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: none;
+    }
+
+    .mobile-message {
+        display: block;
+    }
 }
