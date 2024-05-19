@@ -26,10 +26,22 @@ function createTicks() {
 function updateTime() {
     const optionsHM = { hour12: false, hour: '2-digit', minute: '2-digit' };
 
-    document.getElementById('clock-mumbai').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Asia/Kolkata'}).format(new Date());
-    document.getElementById('clock-shanghai').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Asia/Shanghai'}).format(new Date());
-    document.getElementById('clock-frauenfeld').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Europe/Zurich'}).format(new Date());
-    document.getElementById('clock-bristol').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Europe/London'}).format(new Date());
+    // Get current time in Frauenfeld
+    const currentDate = new Date();
+    const frauenfeldTime = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Europe/Zurich'}).format(currentDate);
+    const frauenfeldHours = parseInt(frauenfeldTime.split(':')[0]);
+    const frauenfeldMinutes = parseInt(frauenfeldTime.split(':')[1]);
+
+    // Check if the time is between 9:00 and 9:05 in Frauenfeld
+    if (frauenfeldHours === 9 && frauenfeldMinutes >= 0 && frauenfeldMinutes < 5) {
+        document.getElementById('clock-frauenfeld').textContent = 'Aldi';
+    } else {
+        document.getElementById('clock-frauenfeld').textContent = frauenfeldTime;
+    }
+
+    document.getElementById('clock-mumbai').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Asia/Kolkata'}).format(currentDate);
+    document.getElementById('clock-shanghai').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'Asia/Shanghai'}).format(currentDate);
+    document.getElementById('clock-bristol').textContent = new Intl.DateTimeFormat('en-GB', {...optionsHM, timeZone: 'America/New_York'}).format(currentDate);
 
     const seconds = new Date().getSeconds();
     document.getElementById('seconds').textContent = seconds;
@@ -44,8 +56,6 @@ function updateTime() {
         }
     }
 }
-
-
 
 createTicks();
 setInterval(updateTime, 1000);
